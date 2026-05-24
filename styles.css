@@ -1293,6 +1293,73 @@ textarea:focus-visible {
 }
 .web-action__btn--outline:hover { background: var(--primary-light); }
 
+/* Feature 5: Business Glossary */
+.fc-count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-xsoft);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.glossary-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.gt-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+}
+
+.gt-item--new {
+  border-color: #4CAF50;
+  background: rgba(76, 175, 80, 0.06);
+}
+
+.gt-term {
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.gt-def {
+  color: var(--text-soft);
+  font-size: 0.73rem;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.gt-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: #4CAF50;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.glossary-chat {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* ──────────────────────────────────────
    PRIVACIDAD
 ─────────────────────────────────────── */
