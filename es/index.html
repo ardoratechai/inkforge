@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InkForge — Tus notas escritas a mano, convertidas en conocimiento</title>
+  <meta name="description" content="InkForge transcribe tus notas de Kindle Scribe, reMarkable o cualquier eBook con lápiz. Búscalas, pregúntale a la IA o conéctalas con internet." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="InkForge — De la tinta al conocimiento" />
+  <meta property="og:description" content="Transcribe tus notas manuscritas, búscalas al instante y pregúntale a la IA sobre cualquier cuaderno." />
+  <meta property="og:url"         content="https://inkforge.app" />
+  <meta property="og:image"       content="https://inkforge.app/assets/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card"   content="summary_large_image" />
+  <meta property="twitter:title"  content="InkForge — De la tinta al conocimiento" />
+  <meta property="twitter:description" content="Transcribe tus notas manuscritas, búscalas al instante y pregúntale a la IA sobre cualquier cuaderno." />
+  <meta property="twitter:image"  content="https://inkforge.app/assets/og-image.jpg" />
+
+  <!-- Optimización de carga de fuentes (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Marcado Estructurado JSON-LD (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "InkForge",
+    "url": "https://inkforge.app",
+    "description": "Transcribe notas escritas a mano (Kindle Scribe, reMarkable) y las convierte en conocimiento usando IA.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     NAVEGACIÓN
+═══════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="InkForge inicio">
+      <img src="../logo.png" alt="InkForge Logotipo" class="nav__logo-img" />
+      <span class="logo-ink">Ink</span><span class="logo-forge">Forge</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#funciones">Funciones</a></li>
+      <li><a href="#precios">Precios</a></li>
+    </ul>
+    <a href="#waitlist" class="btn btn--nav">Empezar gratis</a>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú móvil">
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#funciones">Funciones</a>
+    <a href="#precios">Precios</a>
+    <a href="#waitlist" class="btn btn--primary btn--block">Empezar gratis</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════
+     HERO
+═══════════════════════════════ -->
+<section class="hero">
+  <div class="hero__inner container">
+
+    <div class="hero__text">
+      <div class="hero__eyebrow">Kindle Scribe · reMarkable · Kobo · Supernote · Boox</div>
+      <h1 class="hero__title">Tus notas escritas a mano,<br><em>convertidas en conocimiento</em></h1>
+      <p class="hero__sub">InkForge transcribe lo que escribes en tu eBook con lápiz. Búscalo, pregúntale a la IA o consulta internet — todo a partir de tus cuadernos.</p>
+
+      <form class="hero__form" id="heroWaitlistForm" novalidate>
+        <input type="email" placeholder="tu@email.com" aria-label="Tu dirección de email" required />
+        <button type="submit" class="btn btn--primary">Empezar gratis</button>
+      </form>
+
+      <div class="hero__badges">
+        <span class="hero__badge">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          5 cuadernos gratis
+        </span>
+        <span class="hero__badge">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Sin tarjeta de crédito
+        </span>
+        <span class="hero__badge">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6 4 .6-2.9 2.8.7 4L8 10l-3.6 2 .7-4L2.2 5.2l4-.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          98% precisión
+        </span>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <!-- Notebook page -->
+      <div class="nb-mockup">
+        <div class="nb-page">
+          <div class="nb-page__holes">
+            <div class="nb-hole"></div>
+            <div class="nb-hole"></div>
+            <div class="nb-hole"></div>
+          </div>
+          <div class="nb-page__content">
+            <div class="nb-page__header">
+              <span class="nb-date">15 oct 2024</span>
+              <span class="nb-subject">Reunión equipo</span>
+            </div>
+            <div class="nb-divider"></div>
+            <div class="nb-lines">
+              <div class="nb-line"><span class="nb-mark nb-mark--check">✓</span><em>Propuesta de Ana — aprobada</em></div>
+              <div class="nb-line"><span class="nb-mark nb-mark--arrow">→</span><em>Llamar a Martínez mañana</em></div>
+              <div class="nb-line"><span class="nb-mark">·</span><em>Q3 cierra bien. Revisar Q4</em></div>
+              <div class="nb-line nb-line--faded"><span class="nb-mark">·</span><em>¿Lanzar en noviembre?</em></div>
+              <div class="nb-line nb-line--faded"><span class="nb-mark">·</span><em>Hablar con marketing antes</em></div>
+              <div class="nb-cursor"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating digital result card -->
+        <div class="nb-digital">
+          <div class="nb-digital__search">
+            <svg class="nb-digital__search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 10l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>¿Qué acordamos con Ana?</span>
+          </div>
+          <div class="nb-digital__ai">
+            <div class="ai-header">
+              <div class="ai-dot"></div>
+              <span class="ai-label">InkForge IA</span>
+            </div>
+            <p class="ai-text">En la reunión del <strong>15 oct</strong>, la propuesta de Ana fue <strong>aprobada</strong>. Quedasteis en contactar con Martínez al día siguiente.</p>
+            <div class="ai-source">
+              <span class="ai-source__tag">📓 Reunión equipo</span>
+              <span class="ai-source__date">15 oct 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating badge -->
+        <div class="nb-badge">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M10 5l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Transcripción lista
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     DISPOSITIVOS COMPATIBLES
+═══════════════════════════════ -->
+<section class="devices">
+  <div class="container">
+    <p class="devices__label">Compatible con tu dispositivo de escritura</p>
+    <div class="devices__grid">
+      <div class="device-pill">
+        <div class="device-pill__mark">KS</div>
+        <span>Kindle Scribe</span>
+      </div>
+      <div class="device-pill">
+        <div class="device-pill__mark">rM</div>
+        <span>reMarkable 2</span>
+      </div>
+      <div class="device-pill">
+        <div class="device-pill__mark">Ko</div>
+        <span>Kobo Elipsa</span>
+      </div>
+      <div class="device-pill">
+        <div class="device-pill__mark">SN</div>
+        <span>Supernote</span>
+      </div>
+      <div class="device-pill">
+        <div class="device-pill__mark">Bx</div>
+        <span>Boox</span>
+      </div>
+      <div class="device-pill device-pill--alt">
+        <div class="device-pill__mark">PDF</div>
+        <span>Cualquier PDF</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     PAIN POINTS
+═══════════════════════════════ -->
+<section class="pain" id="por-que">
+  <div class="container">
+    <h2 class="section-title">Escribes mucho.<br>¿Pero cuánto usas lo que escribes?</h2>
+    <p class="section-sub">Las notas manuscritas son ricas en ideas, pero el 80% acaba sin consultarse nunca.</p>
+
+    <div class="pain__grid">
+      <div class="pain__card">
+        <div class="pain__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>No puedes buscar en papel</h3>
+        <p>Encontrar una nota de hace dos semanas significa hojear cuaderno por cuaderno. El conocimiento está atrapado en el dispositivo.</p>
+      </div>
+
+      <div class="pain__card">
+        <div class="pain__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>La IA no lee tu letra</h3>
+        <p>ChatGPT, Notion AI, Google… ninguna herramienta de IA puede leer lo que escribiste a mano. Tu contenido más reflexivo queda invisible.</p>
+      </div>
+
+      <div class="pain__card">
+        <div class="pain__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Tus ideas están aisladas</h3>
+        <p>No puedes conectar tus notas con información de internet, ni relacionar cuadernos entre sí. Cada idea queda en su silo.</p>
+      </div>
+    </div>
+
+    <div class="pain__solution">
+      <div class="pain__solution-content">
+        <div class="solution-tag">La solución</div>
+        <h3>InkForge convierte tu eBook en un segundo cerebro</h3>
+        <p>Sube o sincroniza tus cuadernos. InkForge transcribe la escritura a mano con IA, indexa todo el texto y te permite buscar, preguntar y conectar ideas — incluyendo búsqueda en internet desde el contexto de tus notas.</p>
+      </div>
+      <div class="pain__solution-stats">
+        <div class="stat">
+          <div class="stat__num">98%</div>
+          <div class="stat__label">Precisión de transcripción</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">&lt;3s</div>
+          <div class="stat__label">Por página procesada</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">40 min</div>
+          <div class="stat__label">Ahorro semanal de media</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     CÓMO FUNCIONA
+═══════════════════════════════ -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <h2 class="section-title">Tres pasos, nada que instalar</h2>
+    <p class="section-sub">Funciona desde el navegador. Sin apps adicionales, sin cables, sin configuración compleja.</p>
+
+    <div class="how__steps">
+      <div class="how__step">
+        <div class="how__num">01</div>
+        <div class="how__content">
+          <h3>Sube o sincroniza</h3>
+          <p>Exporta el PDF de tu Kindle Scribe, reMarkable o Boox y súbelo a InkForge. También puedes fotografiar páginas desde el móvil.</p>
+        </div>
+      </div>
+
+      <div class="how__connector" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M15 8l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step">
+        <div class="how__num">02</div>
+        <div class="how__content">
+          <h3>InkForge transcribe</h3>
+          <p>La IA reconoce tu caligrafía y convierte cada página en texto limpio, estructurado y completamente indexado en segundos.</p>
+        </div>
+      </div>
+
+      <div class="how__connector" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M15 8l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="how__step">
+        <div class="how__num">03</div>
+        <div class="how__content">
+          <h3>Busca, pregunta y conecta</h3>
+          <p>Busca en todos tus cuadernos, chatea con la IA sobre tu contenido o lanza búsquedas en internet enriquecidas con el contexto de tus notas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     FUNCIONES
+═══════════════════════════════ -->
+<section class="features" id="funciones">
+  <div class="container">
+
+    <!-- Feature 1: Transcripción -->
+    <div class="feature-row">
+      <div class="feature-row__content">
+        <div class="feature-tag">Transcripción inteligente</div>
+        <h3>Tu caligrafía, convertida en texto perfecto</h3>
+        <p>InkForge usa modelos de visión por computador especializados en escritura a mano. Entiende abreviaturas, tachados, flechas y esquemas. Funciona con cualquier tipo de letra.</p>
+        <ul class="feature-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Escritura en español, inglés y más de 40 idiomas
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Reconoce esquemas, listas, tablas y diagramas
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Corrección ortográfica automática contextual
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Exporta a texto plano, Markdown o PDF
+          </li>
+        </ul>
+      </div>
+      <div class="feature-row__visual" aria-hidden="true">
+        <div class="feature-card feature-card--transcription">
+          <div class="fc-header">
+            <div class="fc-dot fc-dot--amber"></div>
+            <span class="fc-title">Transcripción en curso</span>
+          </div>
+          <div class="transcription-split">
+            <div class="ts-original">
+              <div class="ts-label">Original</div>
+              <div class="ts-handwritten">
+                <div class="hw-line"><em>Reunión 15 oct</em></div>
+                <div class="hw-line hw-indent"><em>→ Propuesta OK</em></div>
+                <div class="hw-line hw-indent"><em>→ Q3 revisión</em></div>
+                <div class="hw-line hw-strikethrough"><em>Llamar hoy</em></div>
+                <div class="hw-line"><em>Presupuesto: 12k€</em></div>
+              </div>
+            </div>
+            <div class="ts-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M15 8l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="ts-result">
+              <div class="ts-label">Texto limpio</div>
+              <div class="ts-text">
+                <div class="tx-line"><strong>Reunión 15 oct</strong></div>
+                <div class="tx-line tx-indent">✓ Propuesta aprobada</div>
+                <div class="tx-line tx-indent">✓ Revisión Q3 pendiente</div>
+                <div class="tx-line tx-strike">~~Llamar hoy~~</div>
+                <div class="tx-line">Presupuesto: <strong>12.000 €</strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="fc-badge">
+            <span class="badge-dot"></span>
+            98% precisión · 2,1 s por página
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: Búsqueda -->
+    <div class="feature-row feature-row--reverse">
+      <div class="feature-row__content">
+        <div class="feature-tag">Búsqueda instantánea</div>
+        <h3>Encuentra cualquier idea en cualquier cuaderno</h3>
+        <p>Todos tus cuadernos están indexados y disponibles al instante. Busca por palabras, frases, fechas o conceptos y localiza cualquier nota en menos de un segundo — sin importar cuándo la escribiste.</p>
+        <ul class="feature-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Búsqueda de texto completo en todos tus cuadernos
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Filtros por fecha, cuaderno, etiqueta o tipo de contenido
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Búsqueda semántica — encuentra ideas aunque no uses las mismas palabras
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Vista del fragmento de página original con el resultado
+          </li>
+        </ul>
+      </div>
+      <div class="feature-row__visual" aria-hidden="true">
+        <div class="feature-card feature-card--search">
+          <div class="fc-search-bar">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 10l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>presupuesto Q4</span>
+            <span class="fc-search-cursor">|</span>
+          </div>
+          <div class="fc-search-meta">4 resultados en 3 cuadernos · 0,3 s</div>
+          <div class="fc-search-results">
+            <div class="sr-item sr-item--active">
+              <div class="sr-item__meta">📓 Reunión equipo <span>15 oct</span></div>
+              <div class="sr-item__excerpt">…el <mark>presupuesto Q4</mark> se revisará antes de noviembre con el equipo de ventas…</div>
+            </div>
+            <div class="sr-item">
+              <div class="sr-item__meta">📓 Planificación anual <span>2 oct</span></div>
+              <div class="sr-item__excerpt">…propuesta de <mark>presupuesto Q4</mark>: 48.000 € para marketing digital…</div>
+            </div>
+            <div class="sr-item">
+              <div class="sr-item__meta">📓 Notas cliente <span>28 sep</span></div>
+              <div class="sr-item__excerpt">…revisar cifras del <mark>Q4</mark> antes de la reunión de cierre…</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Chat IA -->
+    <div class="feature-row">
+      <div class="feature-row__content">
+        <div class="feature-tag">Chat con tus notas</div>
+        <h3>Pregúntale a la IA sobre cualquier cosa que hayas escrito</h3>
+        <p>InkForge conecta tus cuadernos con un asistente de IA que conoce todo tu contenido. Pregunta qué acordaste, pide resúmenes, identifica patrones o genera listas de acción a partir de tus apuntes.</p>
+        <ul class="feature-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Preguntas en lenguaje natural sobre tus notas
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Resúmenes automáticos de reuniones o sesiones de trabajo
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Relaciona ideas de distintos cuadernos automáticamente
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Genera listas de tareas, esquemas o borradores de texto
+          </li>
+        </ul>
+      </div>
+      <div class="feature-row__visual" aria-hidden="true">
+        <div class="feature-card feature-card--chat">
+          <div class="fc-header">
+            <div class="fc-dot fc-dot--amber"></div>
+            <span class="fc-title">InkForge IA</span>
+          </div>
+          <div class="chat-msgs">
+            <div class="chat-msg chat-msg--user">
+              ¿Qué temas de presupuesto tengo pendientes del Q4?
+            </div>
+            <div class="chat-msg chat-msg--ai">
+              <div class="chat-ai-header">
+                <div class="ai-dot"></div>
+                InkForge IA
+              </div>
+              Basándome en tus cuadernos encuentro <strong>3 temas pendientes</strong>:
+              <ol class="chat-list">
+                <li>Revisión presupuesto Q4 (reunión 15 oct)</li>
+                <li>Propuesta marketing 48.000 € (planificación anual)</li>
+                <li>Cierre cifras cliente (notas 28 sep)</li>
+              </ol>
+              <div class="chat-sources">📓 3 cuadernos consultados</div>
+            </div>
+            <div class="chat-msg chat-msg--user">
+              Genera un resumen ejecutivo de estos puntos
+            </div>
+            <div class="chat-msg chat-msg--typing">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Internet -->
+    <div class="feature-row feature-row--reverse">
+      <div class="feature-row__content">
+        <div class="feature-tag">Conecta con internet</div>
+        <h3>Enriquece tus notas con búsqueda en la web</h3>
+        <p>InkForge puede lanzar búsquedas en internet usando el contexto de lo que has escrito. Amplía tus ideas, verifica datos, busca fuentes o actualiza información sin salir de tu espacio de notas.</p>
+        <ul class="feature-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Búsqueda web en contexto desde cualquier nota
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Verificación de datos y estadísticas que aparecen en tus apuntes
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Fuentes y referencias añadidas automáticamente al contexto
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Integración con Wikipedia, noticias y bases de datos públicas
+          </li>
+        </ul>
+      </div>
+      <div class="feature-row__visual" aria-hidden="true">
+        <div class="feature-card feature-card--web">
+          <div class="web-prompt">
+            <div class="web-prompt__icon">🌐</div>
+            <span>Ampliar: tendencias presupuesto marketing 2025</span>
+          </div>
+          <div class="web-results">
+            <div class="web-result">
+              <div class="web-result__source">Forbes</div>
+              <div class="web-result__title">El presupuesto medio de marketing digital sube un 12% en 2025</div>
+              <div class="web-result__snippet">Las empresas medianas destinan entre el 8–12% de sus ingresos a digital según el informe anual…</div>
+            </div>
+            <div class="web-result">
+              <div class="web-result__source">Statista</div>
+              <div class="web-result__title">Distribución del gasto en marketing B2B en España 2024</div>
+              <div class="web-result__snippet">El 43% del presupuesto va a canales digitales, frente al 31% del año anterior…</div>
+            </div>
+          </div>
+          <div class="web-action">
+            <span class="web-action__btn">Añadir a mis notas</span>
+            <span class="web-action__btn web-action__btn--outline">Ver fuentes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     PRIVACIDAD
+═══════════════════════════════ -->
+<section class="privacy" id="privacidad">
+  <div class="container">
+    <h2 class="section-title">Tus notas son tuyas. Punto.</h2>
+    <p class="section-sub">Lo que escribes es privado. InkForge está diseñado desde el inicio para que ningún tercero pueda acceder a tus cuadernos.</p>
+
+    <div class="privacy__grid">
+      <div class="privacy__card privacy__card--featured">
+        <div class="privacy__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Zero Retention</h3>
+        <p>Los modelos de IA no retienen ni usan tu contenido para entrenamiento. Cada procesado es aislado y efímero. Tus cuadernos no alimentan ningún modelo compartido.</p>
+      </div>
+
+      <div class="privacy__card">
+        <div class="privacy__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Cifrado extremo a extremo</h3>
+        <p>TLS 1.3 en tránsito y AES-256 en reposo. Nadie salvo tú puede leer el contenido de tus cuadernos.</p>
+      </div>
+
+      <div class="privacy__card">
+        <div class="privacy__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Tus datos, tu propiedad</h3>
+        <p>Exporta todo en cualquier momento. Elimina tu cuenta y todos los datos se borran permanentemente, sin periodos de retención ocultos.</p>
+      </div>
+
+      <div class="privacy__card">
+        <div class="privacy__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Servidores en la UE</h3>
+        <p>Todos los datos se procesan y almacenan en infraestructura europea. Cumplimiento pleno del RGPD y las normativas de privacidad europeas.</p>
+      </div>
+    </div>
+
+    <div class="privacy__compliance">
+      <span>RGPD compliant</span>
+      <span>Servidores UE</span>
+      <span>IA Zero Retention</span>
+      <span>Sin venta de datos</span>
+      <span>Auditorías periódicas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     TESTIMONIOS + MÉTRICAS
+═══════════════════════════════ -->
+<section class="testi" id="testimonios">
+  <div class="container">
+    <h2 class="section-title">Usada por personas que toman notas en serio</h2>
+
+    <div class="testi__grid">
+      <div class="testi__card">
+        <div class="testi__quote">"Tomo notas en mi Kindle Scribe todo el día. Con InkForge ya no pierdo nada — busco en segundos y la IA me resume las reuniones de la semana en un parpadeo."</div>
+        <div class="testi__author">
+          <div class="testi__avatar">LM</div>
+          <div>
+            <div class="testi__name">Laura M.</div>
+            <div class="testi__role">Directora de Proyectos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi__card">
+        <div class="testi__quote">"La búsqueda semántica en todos mis cuadernos de investigación ha cambiado completamente mi forma de trabajar. Encuentro conexiones que antes me perdía."</div>
+        <div class="testi__author">
+          <div class="testi__avatar">CR</div>
+          <div>
+            <div class="testi__name">Carlos R.</div>
+            <div class="testi__role">Investigador universitario</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi__card">
+        <div class="testi__quote">"Le pregunto a la IA sobre mis apuntes de hace tres meses y me da el contexto completo. Es como tener un asistente que ha leído todo lo que he escrito en mi vida."</div>
+        <div class="testi__author">
+          <div class="testi__avatar">MS</div>
+          <div>
+            <div class="testi__name">Marta S.</div>
+            <div class="testi__role">Consultora de estrategia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric__num">98%</div>
+        <div class="metric__label">Precisión media de transcripción</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num">2,4s</div>
+        <div class="metric__label">Tiempo medio por página</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num">40min</div>
+        <div class="metric__label">Ahorro semanal de media</div>
+      </div>
+      <div class="metric">
+        <div class="metric__num" id="waitlistCounter">412</div>
+        <div class="metric__label">Personas en lista de espera</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     PRECIOS
+═══════════════════════════════ -->
+<section class="pricing" id="precios">
+  <div class="container">
+    <h2 class="section-title">Precios pensados para escritores de verdad</h2>
+    <p class="section-sub">Empieza gratis, sin tarjeta. Crece cuando tus cuadernos crezcan.</p>
+
+    <div class="pricing__toggle-row">
+      <span class="pricing__toggle-label">Mensual</span>
+      <button class="pricing__toggle" id="billingToggle" role="switch" aria-checked="false" aria-label="Cambiar a facturación anual">
+        <span class="pricing__toggle-thumb"></span>
+      </button>
+      <span class="pricing__toggle-label">Anual <span class="pricing__save-badge">–20%</span></span>
+    </div>
+
+    <div class="pricing__plans">
+
+      <!-- Plan Libre -->
+      <div class="plan">
+        <div class="plan__name">Libre</div>
+        <div class="plan__price">
+          <span class="plan__currency"></span>
+          <span class="plan__amount" style="font-size:2.6rem;">Gratis</span>
+        </div>
+        <div class="plan__desc">Para empezar sin compromisos</div>
+        <ul class="plan__features">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            5 cuadernos
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Transcripción ilimitada de páginas
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Búsqueda en todos tus cuadernos
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Exportación en texto y Markdown
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Sin tarjeta de crédito
+          </li>
+        </ul>
+        <a href="#waitlist" class="btn btn--outline btn--block">Empezar gratis</a>
+      </div>
+
+      <!-- Plan Plus — featured -->
+      <div class="plan plan--featured">
+        <div class="plan__badge">Más popular</div>
+        <div class="plan__name">Plus</div>
+        <div class="plan__price">
+          <span class="plan__currency">€</span>
+          <span class="plan__amount" data-monthly="20" data-annual="16">20</span>
+          <span class="plan__period">/mes</span>
+        </div>
+        <div class="plan__desc">Para usuarios activos con muchos cuadernos</div>
+        <ul class="plan__features">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            25 cuadernos
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Todo lo del plan Libre
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Chat IA con tus notas
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Búsqueda en internet desde tus apuntes
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Exportación en PDF y Markdown
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Soporte por email
+          </li>
+        </ul>
+        <a href="#waitlist" class="btn btn--primary btn--block">Unirme a la lista</a>
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="plan">
+        <div class="plan__name">Pro</div>
+        <div class="plan__price">
+          <span class="plan__currency">€</span>
+          <span class="plan__amount" data-monthly="40" data-annual="32">40</span>
+          <span class="plan__period">/mes</span>
+        </div>
+        <div class="plan__desc">Para investigadores y equipos intensivos</div>
+        <ul class="plan__features">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            50 cuadernos
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Todo lo del plan Plus
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Procesado prioritario
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            API para integraciones externas
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Historial de versiones de cuadernos
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 4L6.5 11 3 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Soporte prioritario
+          </li>
+        </ul>
+        <a href="#waitlist" class="btn btn--outline btn--block">Unirme a la lista</a>
+      </div>
+
+    </div>
+
+    <p class="pricing__note">Precios orientativos para la fase de lanzamiento. La lista de espera asegura el precio de salida.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     WAITLIST
+═══════════════════════════════ -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="waitlist__inner">
+
+      <div id="waitlistFormState">
+        <div class="waitlist__header">
+          <h2 class="waitlist__title">Sé el primero en usarlo</h2>
+          <p class="waitlist__sub">
+            <span id="waitlistCounter2">412</span> personas ya están en la lista.
+            Apúntate y asegura el precio de lanzamiento.
+          </p>
+        </div>
+
+        <form class="waitlist__form" id="mainWaitlistForm" novalidate>
+          <div class="form-row form-row--two">
+            <div class="form-group">
+              <label for="wlName">Nombre <span class="optional">(opcional)</span></label>
+              <input type="text" id="wlName" placeholder="Tu nombre" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="wlEmail">Email <span class="required">*</span></label>
+              <input type="email" id="wlEmail" placeholder="tu@email.com" autocomplete="email" required />
+              <span class="form-error" id="wlEmailError" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="wlDevice">¿Qué dispositivo usas? <span class="optional">(opcional)</span></label>
+            <select id="wlDevice">
+              <option value="">Selecciona tu dispositivo</option>
+              <option value="kindle-scribe">Kindle Scribe</option>
+              <option value="remarkable">reMarkable 2</option>
+              <option value="kobo">Kobo Elipsa</option>
+              <option value="supernote">Supernote</option>
+              <option value="boox">Boox</option>
+              <option value="otro">Otro eBook con lápiz</option>
+              <option value="papel">Papel / cuaderno físico</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group--check">
+            <label class="check-label">
+              <input type="checkbox" id="wlConsent" required />
+              <span class="check-custom"></span>
+              <span>Acepto recibir novedades sobre InkForge. <a href="#">Política de privacidad</a>.</span>
+            </label>
+            <span class="form-error" id="wlConsentError" role="alert"></span>
+          </div>
+
+          <p class="waitlist__secure-note" style="font-size: 0.75rem; color: var(--text-xsoft); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; justify-content: center;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="color: var(--primary);"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            🔒 Tus datos están seguros. Asegura acceso vitalicio preferente antes del lanzamiento.
+          </p>
+
+          <button type="submit" class="btn btn--primary btn--block waitlist__submit">
+            <span class="btn-text">Apuntarme a la lista de espera</span>
+            <span class="btn-loading" hidden>
+              <svg class="spinner" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-dasharray="40" stroke-dashoffset="30"/></svg>
+              Enviando…
+            </span>
+          </button>
+        </form>
+
+        <div class="waitlist__privacy">
+          <span class="privacy-pill">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Sin tarjeta de crédito
+          </span>
+          <span class="privacy-pill">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6 4 .6-2.9 2.8.7 4L8 10l-3.6 2 .7-4L2.2 5.2l4-.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Precio de lanzamiento garantizado
+          </span>
+          <span class="privacy-pill">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l1.5 3 3.3.5-2.4 2.3.6 3.3L8 9l-3 1.6.6-3.3L3.2 5l3.3-.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Acceso anticipado
+          </span>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div id="waitlistSuccessState" hidden>
+        <div class="success-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3"/><path d="M14 24l7 7 13-14" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="success-title">¡Ya estás dentro!</h3>
+        <p class="success-sub">Te avisaremos en cuanto InkForge esté listo. Tienes asegurado el precio de lanzamiento.</p>
+        <div class="success-share">
+          <p class="share-label">¿Conoces a alguien que tome notas en eBook?</p>
+          <div class="share-btns">
+            <button class="share-btn" id="shareLinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </button>
+            <button class="share-btn" id="shareTwitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </button>
+            <button class="share-btn share-btn--outline" id="copyLink">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Copiar enlace
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     FOOTER
+═══════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <span class="logo-ink">Ink</span><span class="logo-forge">Forge</span>
+        </a>
+        <p>De la tinta al conocimiento.<br>Tu eBook como segundo cerebro.</p>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>Producto</h4>
+          <ul>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Dispositivos</h4>
+          <ul>
+            <li><a href="#waitlist">Kindle Scribe</a></li>
+            <li><a href="#waitlist">reMarkable 2</a></li>
+            <li><a href="#waitlist">Kobo Elipsa</a></li>
+            <li><a href="#waitlist">Supernote</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Condiciones de uso</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Aviso legal</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 InkForge. Todos los derechos reservados.</p>
+      <p>Kindle es marca registrada de Amazon. reMarkable es marca registrada de reMarkable AS. InkForge no está afiliado a ninguno de estos fabricantes.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
