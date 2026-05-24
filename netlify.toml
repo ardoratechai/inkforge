@@ -1,0 +1,25 @@
+[build]
+  publish = "."
+
+# Redirige la raíz según el idioma preferido del navegador
+[[redirects]]
+  from = "/"
+  to = "/es/index.html"
+  status = 302
+  conditions = {Language = ["es", "es-ES", "es-MX", "es-AR", "es-CO", "es-CL", "es-PE"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en/index.html"
+  status = 302
+
+# Rutas limpias: /en y /es sin el index.html
+[[redirects]]
+  from = "/en"
+  to = "/en/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/es"
+  to = "/es/index.html"
+  status = 200
